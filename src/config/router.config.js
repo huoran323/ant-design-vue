@@ -10,9 +10,20 @@ export const asyncRouterMap = [
     meta: { title: '首页' },
     redirect: '/dashboard/workplace',
     children: [
-      // {
-      //   path: '/test'
-      // },
+      {
+        path: '/testform',
+        redirect: '/testform/test-base-form',
+        component: PageView,
+        meta: { title: '测试表单', icon: 'form' },
+        children: [
+          {
+            path: '/testform/test-base-form',
+            name: 'TestBaseForm',
+            component: () => import('@/views/testform/BasicForm'),
+            meta: { title: '测试基础表单', keepAlive: true }
+          }
+        ]
+      },
       // dashboard
       {
         path: '/dashboard',
